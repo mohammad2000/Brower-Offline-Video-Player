@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shaka Player Offline Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.10.10/shaka-player.compiled.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/m3u8-parser/4.7.1/m3u8-parser.min.js"></script>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #video {
+            margin-top: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 10px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .quality-button {
+            background-color: #2ecc71;
+        }
+        .quality-button:hover {
+            background-color: #27ae60;
+        }
+        .delete-button {
+            background-color: #e74c3c;
+        }
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+        .hidden {
+            display: none;
+        }
+        #quality-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .progress-container {
+            width: 100%;
+            max-width: 640px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #cacaca;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            width: 0%;
+            height: 25px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+            border-radius: 5px;
+        }
+        .message {
+            color: #2e86de;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="play-online" class="quality-button">Play Online</button>
+    </div>
+    <div id="quality-buttons" class="quality-buttons">
+        <!-- Quality buttons will be added here dynamically -->
+    </div>
+    <div id="progress-container" class="progress-container hidden">
+        <div id="progress-bar" class="progress-bar">0%</div>
+    </div>
+    <div id="message" class="message hidden">Video downloaded successfully!</div>
+    <video id="video" width="640" controls></video>
+    <script src="app.js"></script>
+</body>
+</html>
